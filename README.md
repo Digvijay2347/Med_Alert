@@ -1,70 +1,91 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# Med Alert
 
-In the project directory, you can run:
+**Med Alert** is a simple and efficient medicine reminder application designed to help users manage their medication schedules with ease. The app allows users to add, track, and receive notifications for their medicine reminders. Built with React, Supabase, and MUI, Med Alert offers a user-friendly interface with essential features for medicine management.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Medicine Management**: Add, update, and delete medicine reminders.
+- **Custom Notifications**: Receive timely notifications for your medications.
+- **User Authentication**: Secure login and signup with Supabase.
+- **Responsive Design**: Fully responsive interface optimized for mobile and desktop devices.
+- **Real-time Sync**: Keep track of your medication schedule in real-time with Supabase integration.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- **Frontend**: React.js, MUI (Material-UI)
+- **Backend**: Supabase (Database + Authentication)
+- **Styling**: Tailwind CSS, Material-UI
+- **Icons**: FontAwesome, Material Icons
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. Clone the repository:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   git clone https://github.com/your-username/med-alert.git
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Navigate to the project directory:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   cd med-alert
+   ```
 
-### `npm run eject`
+3. Install dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Create a `.env` file in the root of your project and add your Supabase credentials:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   REACT_APP_SUPABASE_URL=your_supabase_url
+   REACT_APP_SUPABASE_KEY=your_supabase_key
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. Run the app:
 
-## Learn More
+   ```bash
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+6. Open your browser and go to:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```
+   http://localhost:3000
+   ```
 
-### Code Splitting
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Med Alert Home](https://i.postimg.cc/VNp8gSNr/Screenshot-2024-08-15-022949.png)
+![Add Reminder](https://i.postimg.cc/bvsP10qf/Screenshot-2024-08-15-023021.png)
+![Notifications](https://i.postimg.cc/FRSQB9fP/Screenshot-2024-08-15-023051.png)
 
-### Analyzing the Bundle Size
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. **Sign Up/Login**: Sign up with your email and password or log in if you already have an account.
+2. **Add Reminders**: Add new medication reminders by providing details such as medicine name, dosage, frequency, and reminder time.
+3. **Track Medications**: View all your active medications and upcoming reminders on the dashboard.
+4. **Notifications**: Get timely notifications based on the reminder schedule.
 
-### Making a Progressive Web App
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Contributions are welcome! If you’d like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
 
-### Advanced Configuration
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a pull request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License
 
-### Deployment
+This project is licensed under the MIT License.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Let me know if you need any specific customizations!
