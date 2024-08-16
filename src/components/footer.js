@@ -38,7 +38,7 @@ const Footer = () => {
             </Typography>
             <Box>
               {['Discover All'].map((item) => (
-                <Link href="#" key={item} display="block" color="inherit" sx={{ mb: 1 }}>
+                <Link href="https://singhdigvijay.vercel.app/" target="_blank" key={item} display="block" color="inherit" sx={{ mb: 1 }}>
                   {item}
                 </Link>
               ))}

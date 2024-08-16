@@ -14,9 +14,10 @@ import Footer from './components/footer';
 import './index.css';
 
 // Initialize Supabase client
-const supabaseUrl = 'https://axvhnfgejqbmwuexrysz.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF4dmhuZmdlanFibXd1ZXhyeXN6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjI3ODAxNTAsImV4cCI6MjAzODM1NjE1MH0.bSMnuG_f5q0DWkWQu6pZcdfsjMgsSfGKKZSKvmBJ0J8';
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
+
 
 // Create a custom theme
 const theme = createTheme({
@@ -97,49 +98,50 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <AppBar position="static">
-          <Toolbar>
-            {isMobile && (
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={toggleDrawer(true)}
-                sx={{ mr: 2 }}
-              >
-                <MenuIcon />
-              </IconButton>
-            )}
-            <LocalHospital sx={{ mr: 2 }} />
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            MedAlert
-            </Typography>
-            {!isMobile && (
-              <>
-                {navItems.map((item) => (
-                  <Button
-                    key={item.text}
-                    color="inherit"
-                    component={Link}
-                    to={item.path}
-                    startIcon={item.icon}
-                  >
-                    {item.text}
-                  </Button>
-                ))}
-                {user ? (
-                  <Button color="inherit" onClick={handleLogout} startIcon={<Logout />}>
-                    Logout
-                  </Button>
-                ) : (
-                  <Button color="inherit" component={Link} to="/login" startIcon={<Login />}>
-                    Login
-                  </Button>
-                )}
-              </>
-            )}
-          </Toolbar>
-        </AppBar>
+      <AppBar position="static">
+  <Toolbar>
+    {isMobile && (
+      <IconButton
+        color="inherit"
+        aria-label="open drawer"
+        edge="start"
+        onClick={toggleDrawer(true)}
+        sx={{ mr: 2 }}
+      >
+        <MenuIcon />
+      </IconButton>
+    )}
+    <LocalHospital sx={{ mr: 2 }} />
+    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+      MedAlert <Typography variant="caption" component="span" sx={{ ml: 1 }}>v1.0</Typography>
+    </Typography>
+    {!isMobile && (
+      <>
+        {navItems.map((item) => (
+          <Button
+            key={item.text}
+            color="inherit"
+            component={Link}
+            to={item.path}
+            startIcon={item.icon}
+          >
+            {item.text}
+          </Button>
+        ))}
+        {user ? (
+          <Button color="inherit" onClick={handleLogout} startIcon={<Logout />}>
+            Logout
+          </Button>
+        ) : (
+          <Button color="inherit" component={Link} to="/login" startIcon={<Login />}>
+            Login
+          </Button>
+        )}
+      </>
+    )}
+  </Toolbar>
+</AppBar>
+
         <Drawer
           anchor="left"
           open={drawerOpen}
