@@ -13,13 +13,11 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Footer from './components/footer';
 import './index.css';
 
-// Initialize Supabase client
+
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-
-// Create a custom theme
 const theme = createTheme({
   palette: {
     primary: {
@@ -69,7 +67,7 @@ function App() {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    setUser(null); // Update user state on logout
+    setUser(null); 
   };
 
   const drawer = (
