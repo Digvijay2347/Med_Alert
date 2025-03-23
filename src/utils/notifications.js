@@ -1,10 +1,10 @@
-const NOTIFICATION_SOUND_URL = '/rs.mp3'; // Ensure this file exists in your public folder
+const NOTIFICATION_SOUND_URL = '/rs.mp3';
 
 let scheduledNotifications = {};
 let missedRemindersShown = false;
 let userInteracted = false;
 
-// Detect user interaction
+
 document.addEventListener('click', () => userInteracted = true);
 document.addEventListener('keydown', () => userInteracted = true);
 
@@ -23,7 +23,6 @@ export function scheduleNotification(medicines) {
     Notification.requestPermission();
   }
 
-  // Check if the current path is the home page, and skip scheduling notifications if true
   if (window.location.pathname.includes('/home')) {
     console.log('Notifications are not scheduled on the home page');
     return;
@@ -47,7 +46,7 @@ export function scheduleNotification(medicines) {
         medicines: [medicine],
         timeout: setTimeout(() => {
           showNotification(scheduledNotifications[medicine.time].medicines);
-          scheduleNotification([medicine]); // Reschedule for the next day
+          scheduleNotification([medicine]);
         }, timeUntilNotification)
       };
     }
@@ -56,7 +55,7 @@ export function scheduleNotification(medicines) {
 
 export function showNotification(medicines) {
   if (!Array.isArray(medicines)) {
-    medicines = [medicines]; // Convert single object to array
+    medicines = [medicines]; 
   }
 
   if (Notification.permission === "granted") {
@@ -65,11 +64,10 @@ export function showNotification(medicines) {
 
     const notification = new Notification(`Time to take medication`, {
       body: medicineDetails,
-      icon: '/capsules.png', // Ensure this file exists in your public folder
+      icon: '/capsules.png',
       requireInteraction: true,
     });
 
-    // Play notification sound only if not on the home page and the user has interacted
     if (!window.location.pathname.includes('/home') && userInteracted) {
       const audio = new Audio(NOTIFICATION_SOUND_URL);
       audio.play().catch(error => {
@@ -97,7 +95,6 @@ export function showMissedReminders(medicines) {
     return;
   }
 
-  // Skip showing missed reminders if they have already been shown
   if (missedRemindersShown) {
     return;
   }
@@ -109,7 +106,7 @@ export function showMissedReminders(medicines) {
     const [hours, minutes] = medicine.time.split(':');
     const reminderTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), parseInt(hours), parseInt(minutes));
 
-    if (reminderTime < now && now - reminderTime < 24 * 60 * 60 * 1000) { // Within last 24 hours
+    if (reminderTime < now && now - reminderTime < 24 * 60 * 60 * 1000) { 
       if (missedMedicines[medicine.time]) {
         missedMedicines[medicine.time].push(medicine);
       } else {
@@ -122,15 +119,14 @@ export function showMissedReminders(medicines) {
     Object.values(missedMedicines).forEach(medicines => {
       showNotification(medicines.map(m => ({ ...m, name: `Missed: ${m.name}` })));
     });
-    missedRemindersShown = true; // Mark missed reminders as shown
+    missedRemindersShown = true;
   }
 }
 
-// Function to clear all scheduled notifications
 export function clearScheduledNotifications() {
   Object.values(scheduledNotifications).forEach(notification => {
     clearTimeout(notification.timeout);
   });
   scheduledNotifications = {};
-  missedRemindersShown = false; // Reset missed reminders shown status when clearing
+  missedRemindersShown = false;
 }
