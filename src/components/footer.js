@@ -7,12 +7,11 @@ const Footer = () => {
     <Box component="footer" sx={{ backgroundColor: '#f8f8f8', py: 1 }}>
       <Container maxWidth="lg">
         <Grid container spacing={4}>
-          {/* Round Image and Quote */}
+          
           <Grid item xs={12} md={4}>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              {/* Round image */}
               <img 
-                src="./vcv.jpg" // Replace with your image path
+                src="./vcv.jpg" 
                 alt="Your Name"
                 style={{ 
                   borderRadius: '50%', 
@@ -21,18 +20,15 @@ const Footer = () => {
                   objectFit: 'cover' 
                 }}
               />
-              {/* Short quote */}
               <Typography variant="h6" component="p" sx={{ mt: 2, textAlign: 'center' }}>
                 "Believe in yourself and all that you are."
               </Typography>
             </Box>
           </Grid>
-
-          {/* Menu Links */}
           <Grid item xs={6} md={4}>
             <Typography variant="h6" gutterBottom sx={{ 
-    fontWeight: 'bold', // or use a specific number like 700
-    fontStyle: 'italic' // or 'normal' for regular style
+    fontWeight: 'bold',
+    fontStyle: 'italic' 
   }}>
               Other Projects
             </Typography>
@@ -48,8 +44,8 @@ const Footer = () => {
           {/* Support Links */}
           <Grid item xs={6} md={4}>
             <Typography variant="h6" gutterBottom sx={{ 
-    fontWeight: 'bold', // or use a specific number like 700
-    fontStyle: 'italic' // or 'normal' for regular style
+    fontWeight: 'bold', 
+    fontStyle: 'italic' 
   }}>
               Support
             </Typography>
@@ -64,7 +60,6 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        {/* Social and Payment Icons */}
         <Box sx={{ mt: 4, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           
         <Box>
